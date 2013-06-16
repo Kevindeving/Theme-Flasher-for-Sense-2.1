@@ -1,0 +1,245 @@
+﻿# MarvellousSense-The ultimate sense way-Aroma Config by Kevinjoa
+
+ini_set("rom_name",             "Sensian");
+ini_set("rom_version",          "v22 - Test");
+ini_set("rom_author",           "Kevinjoa");
+ini_set("rom_device",           "HTC Wildfire S");
+ini_set("rom_date",             "April ,20te, 2013");
+
+ini_set("text_ok", "OK");
+ini_set("text_next", "Next >");
+ini_set("text_back", "< Back");
+ini_set("text_yes", "Yes");
+ini_set("text_no", "No");
+ini_set("text_about", "About");
+ini_set("text_quit", "Quit Installation");
+ini_set("text_quit_msg", "Really Quit the installation?");
+
+splash(5000, "splash");
+
+fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansArabic.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
+
+theme("sense");
+
+viewbox(
+	"Marvellous Sense ",
+	"\n\n\n\n\n\n\n\n\n\n"+
+	"<#0000ff>Welcome!</#>\n\n\n\n"+
+	"You are about to flash Marvellous Sense.\n\n"+
+	"<b>Build: v2 -Final</b>\n"+
+	"<b>Datum: 03.05.2013</b>\n\n"+
+	"Please click next to go on."+
+	"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+
+	"by Kevinjoa, Mazer.one, Disciplexone (cool keyboard themes)",
+	"icons/sensian"
+);
+	
+agreebox(
+	"Infos",
+	"Please read the informations before flashing:",
+	"icons/alert",
+	readfile_aroma("informations.txt"),
+	"I've read the information.",
+	"Please read the informations before flashing!"
+);
+
+selectbox(
+  "<~install.features>",
+  "<~install.features2>",
+  "@default",
+  "mods.prop",
+ 
+  "Kernel",					  "",															    2,
+  "Overclockable",			  "m1ndh4x8r's overclockable kernel",					            0,
+  "Stable",			          "Stock non-oc kernel only supports ext2 and3",	                1,
+  "Dust 9.0",                 "Performance Kernel which is overclocked to 787mhz at boot",      0,
+  "Stock moddified",          "A moddified stock kernel by Crossfire 77 with ext4 support",     0,
+  "Disciplexone1.2",          "Performance kernel by disciplexone- Overclockable up to 825mhz", 0
+); 
+
+selectbox(
+  "Browser",
+  "Which Browser do you want to use?",
+  "icons/apps",
+  "internet.prop",
+  "Stock",                  "Stock Htc Sense2.1 Browser",                                                          1,
+  "Opera mini",             "Extremly fast Browser by opera. Also saves your small amount of 2g/3g data usage ",   0,
+  "Boat Browser mini",      "Also quick and fast:",                                                                0
+);  
+
+selectbox(
+  "Music",
+  "Which Music Player do you want to use ?",
+  "icons/apps",
+  "musik.prop",
+  "Stock",                    "Stock Htc Music Player",                                                              1,
+  "Noozy",                    "Windowsphone look-alike music player with integrated equalizer",                      0,
+  "Playmusic",                "Googles Music Player",                                                                0
+);  
+
+selectbox(
+  "Bootanimation",
+  "Which Bootanimation do you wanna have ?",
+  "icons/customize",
+  "animi.prop",
+  "Stock Bootanimation",               "Stock Htc quietly brilliant Bootanimation",                                  0,
+  "Marvellous-Bootanimation",          "Marvellous Bootanimation :D",                                                1
+);  
+
+selectbox(
+  "Sounds",
+  "Which Ringtone- Notification- and Alarmtones do you want to use?",
+  "icons/apps",
+  "zsounds.prop",
+  "Sense2.1",                 "Stock Htc Sense2.1 Toneset",                                                          0,
+  "Htc One",                  "Htc One Toneset",                                                                     1,
+  "Galaxy s4",                "Galaxy S4 Toneset",                                                                   0,
+  "Sony Xperia Z",            "Sony Xperia Z Toneset",                                                               0  
+); 
+
+selectbox(
+  "Email",
+  "Which Email app do you wnat to use ?",
+  "icons/apps",
+  "zmail.prop",
+  "Htc",                      "Stock Htc Sense2.1 mail app ",                                                        1,
+  "Google mail",              "Googles email app",                                                                   0,
+  "Both",                     "Htc mail + Google mail",                                                              0,
+  "No",                       "I didn't want to have any mail app",                                                  0
+);  
+
+selectbox(
+  "Theme",
+  "Which Theme should be flashed?",
+  "icons/apps",
+  "theme.prop",
+  "Stock",                               "Stock Htc Design",                                                             0,
+  "Marvellous-Orange",                   "A new special, exclusive theme by Mazer.one",                                  1,
+  "Cysense",                             "Cysense Design by Mazer.one",                                                  0,
+  "Pink",                                "A pink  Theme by Mazer.one",                                                   0,
+  "Helldroid",                           "A really cool Theme von Prototyp1981 and Mazer.one",                           0,
+  "Maz9000",                             "Not much different against the Helldroid",                                     0
+);  
+
+selectbox(
+    "Dialer",
+	"Which Dialer should be flashed ?",
+	"icons/app",
+	"dialer.prop",
+	"Stock",                             "Stock Htc Design",                                                             0,
+	"Marvellous-Orange",                 "A new special, exclusive dialer by mazer.one",                                 1,
+	"Nextheme",                          "A black dialer with blue keys",                                                0,
+	"ICS",                               "A dialer in Ics Design",                                                       0,
+	"Maz9000",                           "A grey-red one by Mazer.one",                                                  0
+);
+
+selectbox(
+    "Keyboard",
+    "Which keyboard should be flashed ?",
+    "icons/app",
+    "keyboard.prop",
+    "Stock",                             "Stock Htc Design",                                                          1,
+    "Nextheme",                          "A black keyboard with blue keys",                                           0,
+    "ICS",                               "A keyboard with Ics Design",                                                0,
+	"Schwarz",                           "A dark black keyboard with white keys and without arrows",                  0,
+	"Blau",                              "A dark black keyboard with blue-green keys and without arrows",             0,
+	"Gingerbread",                       "Stock Gingerbread keyboard",                                                0
+);	
+	
+selectbox(
+	"LAUNCHER",
+	"Which Launcher should be flashed?",
+	"icons/apps",
+	"launchers.prop",
+	"Stock",							"Stock Htc Rosie Launcher",														 0,
+    "Marvellous-Orange",                "Modded Stock Launcher for Marvellous-Orange",                                   1,	
+    "Holo.",                            "Holo look Launcher",                                                            0,
+	"Pink",                             "Modded Stock launcher with pink look ",                                         0,	
+	"Cysense",                          "Modded Stock launcher with Cysense look",                                       0,
+	"Sense4",                           "Modded Launcherpro with Sense 4 Design",                                        0,
+	"Helldroid/Maz9000",                "Modded Stock launcher with Helldroid/Maz9000 Design",                           0
+);
+
+selectbox(
+    "Clock-Widget",
+	"Which Clock_Widget do you wanna flash ?",
+	"icons/apps",
+	"clock.prop",
+	"Stock",                           "Stock Htc Clock-Widget",                                                         0,
+	"Marvellous-Orange",               "A new special, exclusive Clock-Widget by mazer.one",                             1,
+	"Cysense",                         "Cysense look Clock-Widget",                                                      0,
+	"Pink",                            "A Pink Clock-Widget",                                                            0,
+	"Helldroid/Maz9000",               "Helldroid/Maz9000 Clock-Widget",                                                 0,
+	"Green",                           "Green displayed time and Rest in black",                                         0,
+	"Orange",                          "Orange displayed time and rest in black",                                        0,
+	"purple",                          "Purple displayed time and rest in black",                                        0
+);
+
+selectbox(
+    "Lockscreen",
+    "Which Lockscreen do you wanna use ?",
+    "icons/apps",
+    "lockscreen.prop",
+    "Stock",                           "Stock Htc Lockscreeen",                                                          0,
+	"Marvellous-Orange",               "A new special, exclusive Lockscreen by mazer.one",                               1,
+    "Cysense",                         "Cysense Lockscreen",                                                             0,
+    "Pink",                            "Pink Lockscreen",                                                                0,
+	"Helldroid",                       "Helldroid Lockscreen",                                                           0,
+	"Maz9000",                         "Maz9000 Lockscreen",                                                             0
+);	
+
+selectbox(
+   "SMS/MMS",
+   "Which SMS/MMS App möchten sie haben?",
+   "icons/apps",
+   "mms.prop",
+   "Stock",                            "Stock Htc look SMS/MMS app",                                                     0,
+   "Marvellous-Orange",                "A new special, exclusive SMS/MMS app by mazer.one",                              1,
+   "Cysense",                          "Cysense look SMS/MMS app",                                                       0,
+   "Helldroid/Maz9000",                "Helldroid/Maz9000 look SMS/MMS app",                                             0
+);
+   
+selectbox(
+   "Memory twekas",
+   "Which tweak do you want to use ?",
+   "icons/apps",
+   "memory.prop",
+   "Link2sd.",                      "Link2sd: Must be activated in system to work",                                    1,
+   "Int2ext+",                      "A background Script like Data2sd :stable:",                                       0
+);   
+   
+   
+ini_set("text_next", "Install!");
+ini_set("text_back", "Check");
+
+viewbox(
+	"<#ff0000>Last Warning!</#>",
+	"\n\n\n\n\n"+
+	"by pressing install rom will be installed.\n\n\n"+
+	"To quit, please press Search-Key\n"+
+	"and choose quit installation.\n\n"+
+	"If you want to check your settings please press\n"+
+	"bitte auf Überprüfen.",
+	"icons/alert"
+);
+
+ini_set("text_next", "OK");
+
+install(
+	"Installing...",
+	"MarvellousSense Rom will be installed now.\n"+
+	"Please wait until the rom installation is finished.",
+	"icons/install"
+);
+
+ini_set("text_next", "Beenden!");
+ini_set("text_back", "< Zurück");
+
+viewbox(
+	"It's DONE !!",
+	"\n\n\n\n\n\n\n"+
+	"The MarvellousSebse-ROM is sucssesfully flashed.\n\n"+
+	"First boot can take a while ,so please wait.\n\n"+
+	"Enjoy your customized phone!",
+	"icons/install"
+);

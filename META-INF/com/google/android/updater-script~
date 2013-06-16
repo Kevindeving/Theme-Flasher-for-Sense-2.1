@@ -1,0 +1,613 @@
+ui_print("----------------------------"); 
+ui_print("   Marvelous Sense 2.1 Rom  "); 
+ui_print("----------------------------"); 
+ui_print(" A production made by       "); 
+ui_print("  *Kevinjoa deving          "); 
+ui_print("  *Mazer.One theming- He's the best in it :D"); 
+ui_print("  *Disciplexone -keyboard themes and kernels"); 
+ui_print("  *Crossfire77 extracting europe ruu and   deodexing it"); 
+ui_print("  *Htc for .sense and everyone I forgot :D"); 
+
+set_progress(0.0);
+format("MTD", "system");
+mount("MTD", "system", "/system");
+format("MTD", "userdata");
+package_extract_dir("system", "/system");
+set_progress(0.3);
+
+ui_print("@Kernel installation");
+# KERNELS
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "1"
+then
+  ui_print("@Installing m1ndh4x8r Kernel");
+      package_extract_dir("devicesupport/marvel/m1ndh4x8r/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img");
+      package_extract_dir("devicesupport/marvel/m1ndh4x8r/system", "/system");
+endif;
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "2"
+then
+  ui_print("@Installing stock Kernel");
+      package_extract_dir("devicesupport/marvel/stock/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img"); 
+      package_extract_dir("devicesupport/marvel/stock/system", "/system");
+endif;
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "3"
+then
+  ui_print("@Installing Dust Kernel");
+      package_extract_dir("devicesupport/marvel/Dustv9/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img");
+      package_extract_dir("devicesupport/marvel/Dustv9/system", "/system");
+endif;	
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "4"
+then
+  ui_print("@Installing Stock+ Kernel");
+      package_extract_dir("devicesupport/marvel/stock2/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img");
+      package_extract_dir("devicesupport/marvel/stock2/system", "/system");
+endif;
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "5"
+then
+  ui_print("@Installing Disciplexone v1.2 Kernel");
+      package_extract_dir("devicesupport/marvel/disci1.2/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img");
+      package_extract_dir("devicesupport/marvel/disci1.2/system", "/system");
+endif;
+
+set_progress(0.4);
+
+#-- Okay thats done... now lets link up stuff with the toolbox.
+ui_print("@Toolbox");
+ui_print("Linken wir die Toolbox...");
+symlink("toolbox", "/system/bin/cat");
+symlink("toolbox", "/system/bin/chmod");
+symlink("toolbox", "/system/bin/chown");
+symlink("toolbox", "/system/bin/chownto");
+symlink("toolbox", "/system/bin/cmp");
+symlink("toolbox", "/system/bin/date");
+symlink("toolbox", "/system/bin/dd");
+symlink("toolbox", "/system/bin/df");
+symlink("toolbox", "/system/bin/dmesg");
+symlink("toolbox", "/system/bin/getevent");
+symlink("toolbox", "/system/bin/getprop");
+symlink("toolbox", "/system/bin/hd");
+symlink("toolbox", "/system/bin/id");
+symlink("toolbox", "/system/bin/ifconfig");
+symlink("toolbox", "/system/bin/iftop");
+symlink("toolbox", "/system/bin/insmod");
+symlink("toolbox", "/system/bin/ioctl");
+symlink("toolbox", "/system/bin/ionice");
+symlink("toolbox", "/system/bin/kill");
+symlink("toolbox", "/system/bin/ln");
+symlink("toolbox", "/system/bin/log");
+symlink("toolbox", "/system/bin/ls");
+symlink("toolbox", "/system/bin/lsmod");
+symlink("toolbox", "/system/bin/lsof");
+symlink("toolbox", "/system/bin/mkdir");
+symlink("toolbox", "/system/bin/mount");
+symlink("toolbox", "/system/bin/mv");
+symlink("toolbox", "/system/bin/nandread");
+symlink("toolbox", "/system/bin/netstat");
+symlink("toolbox", "/system/bin/newfs_msdos");
+symlink("toolbox", "/system/bin/notify");
+symlink("toolbox", "/system/bin/printenv");
+symlink("toolbox", "/system/bin/ps");
+symlink("toolbox", "/system/bin/renice");
+symlink("toolbox", "/system/bin/rm");
+symlink("toolbox", "/system/bin/rmdir");
+symlink("toolbox", "/system/bin/rmmod");
+symlink("toolbox", "/system/bin/route");
+symlink("toolbox", "/system/bin/schedtop");
+symlink("toolbox", "/system/bin/sendevent");
+symlink("toolbox", "/system/bin/setconsole");
+symlink("toolbox", "/system/bin/setprop");
+symlink("toolbox", "/system/bin/sleep");
+symlink("toolbox", "/system/bin/smd");
+symlink("toolbox", "/system/bin/start");
+symlink("toolbox", "/system/bin/stop");
+symlink("toolbox", "/system/bin/sync");
+symlink("toolbox", "/system/bin/top");
+symlink("toolbox", "/system/bin/umount");
+symlink("toolbox", "/system/bin/uptime");
+symlink("toolbox", "/system/bin/vmstat");
+symlink("toolbox", "/system/bin/watchprops");
+symlink("toolbox", "/system/bin/wipe");
+set_progress(0.5);
+
+#Browser
+if
+		file_getprop("/tmp/aroma-data/internet.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Htc Sense2.1 Browser...");
+		package_extract_dir("browser/stock", "/system/app");
+	endif;		
+
+if
+		file_getprop("/tmp/aroma-data/internet.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Opera Mini Browser...");
+		package_extract_dir("browser/opera", "/system/app");
+	endif;		
+
+if
+		file_getprop("/tmp/aroma-data/internet.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Boat Mini Browser...");
+		package_extract_dir("browser/boat", "/system/app");
+	endif;		
+
+#Musik Player
+if
+		file_getprop("/tmp/aroma-data/musik.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Htc Musik Player...");
+		package_extract_dir("music/stock", "/system/app");
+	endif;	
+
+if
+		file_getprop("/tmp/aroma-data/musik.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Noozy Player...");
+		package_extract_dir("music/noozy", "/system/app");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/musik.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Googles Player...");
+		package_extract_dir("music/playmusic", "/system/app");
+	endif;	
+
+#Bootanimation
+
+if
+		file_getprop("/tmp/aroma-data/animi.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Htc Bootanimation...");
+		package_extract_dir("bootanimation/stock", "/system/customize/resource");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/animi.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Marvellous Bootanimation...");
+		package_extract_dir("bootanimation/marvellous", "/system/customize/resource");
+	endif;
+	
+#System Sounds	
+if
+		file_getprop("/tmp/aroma-data/zsounds.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Htc Sense2.1 Sounds...");
+		package_extract_dir("syssounds/sense2.1", "/system/media/audio");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/zsounds.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Stock Htc One Sounds...");
+		package_extract_dir("syssounds/htcone", "/system/media/audio");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/zsounds.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Galaxy S4 Sounds...");
+		package_extract_dir("syssounds/s4", "/system/media/audio");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/zsounds.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing Xperia Z Sounds...");
+		package_extract_dir("syssounds/xperiaz", "/system/media/audio");
+	endif;	
+
+#Mailapp
+
+if
+		file_getprop("/tmp/aroma-data/zmail.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Htc Sense2.1 Mailapp...");
+		package_extract_dir("email/htc", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/zmail.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Google mail...");
+		package_extract_dir("email/gmail", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/zmail.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Htc mail + Google mail...");
+		package_extract_dir("email/gmail", "/system/app");
+		package_extract_dir("email/htc", "/system/app");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/zmail.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing no mail apps...");	
+	endif;
+	
+#Themes
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "1"
+	then
+    ui_print("-Flashing Stock HTC look...");
+        package_extract_dir("theme/stock", "/system/framework");
+		package_extract_dir("theme/stockapp", "/system/app");
+	endif;	
+
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "2"
+	then
+    ui_print("-Flashing MArvellous-Orange look...");
+        package_extract_dir("theme/marvellousorange", "/system/framework");
+		package_extract_dir("theme/marvellousorangeapp", "/system/app");
+		package_extract_dir("fonts/marvellous", "/system/fonts");
+	endif;
+	
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "3"
+	then
+    ui_print("-Flashing Cysense look...");
+        package_extract_dir("theme/cysense", "/system/framework");
+		package_extract_dir("theme/cysenseapp", "/system/app");
+		package_extract_dir("fonts/cysense", "/system/fonts");
+	endif;
+
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "4"
+	then
+    ui_print("-Flashing Pink look...");
+        package_extract_dir("theme/pinkish", "/system/framework");
+		package_extract_dir("theme/pinkishapp", "/system/app");
+		package_extract_dir("fonts/pink", "/system/fonts");
+	endif;
+	
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "5"
+	then
+    ui_print("-Flashing Helldroid look...");
+        package_extract_dir("theme/helldroid", "/system/framework");
+		package_extract_dir("theme/helldroidapp", "/system/app");
+		package_extract_dir("fonts/helldroid", "/system/fonts");
+	endif;
+
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "6"
+	then
+    ui_print("-Flashing Maz9000 look...");
+        package_extract_dir("theme/maz9000", "/system/framework");
+		package_extract_dir("theme/maz9000app", "/system/app");
+		package_extract_dir("fonts/maz9000", "/system/fonts");
+	endif;
+	
+set_progress(0.6);	
+	
+#Dialer
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "1"
+	then
+    ui_print("-Flashing Stock HTC look Dialer...");
+		package_extract_dir("dialer/stock", "/system/app");
+	endif;
+
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "2"
+	then
+    ui_print("-Flashing Marvellous-Orange look Dialer...");
+		package_extract_dir("dialer/marvellousorange", "/system/app");
+	endif;
+	
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "3"
+	then
+    ui_print("-Flashing Stock Nextheme look Dialer...");
+		package_extract_dir("dialer/nextheme", "/system/app");
+	endif;	
+	
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "4"
+	then
+    ui_print("-Flashing Standard Ics look Dialer...");
+		package_extract_dir("dialer/ics", "/system/app");
+	endif;	
+	
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "5"
+	then
+    ui_print("-Flashing Maz9000 Dialer...");
+		package_extract_dir("dialer/maz9000", "/system/app");
+	endif;	
+	
+set_progress(0.65);
+	
+#Tastatur
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "1"
+	then
+    ui_print("-Flashing Stock HTC look keyboard...");
+		package_extract_dir("keyboard/stock", "/system/app");
+	endif;
+
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "2"
+	then
+    ui_print("-Flashing Stock Nextheme look keyboard...");
+		package_extract_dir("keyboard/nextheme", "/system/app");
+	endif;
+	
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "3"
+	then
+    ui_print("-Flashing Stock Ics look keyboard...");
+		package_extract_dir("keyboard/ics", "/system/app");
+	endif;
+
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "4"
+	then
+    ui_print("-Flashe Stock black look keyboard...");
+		package_extract_dir("keyboard/schwarz", "/system/app");
+	endif;	
+
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "5"
+	then
+    ui_print("-Flashing Stock blue look keyboard...");
+		package_extract_dir("keyboard/blau", "/system/app");
+	endif;
+	
+if
+        file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "6"
+	then
+    ui_print("-Flashing real Gingerbread keyboard...");
+		package_extract_dir("keyboard/gb", "/system/app");
+	endif;
+set_progress(0.7);	
+
+#Launchers
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Rosie Launcher...");
+		package_extract_dir("launchers/rosie/app", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Stock Marvelous-Orange Launcher...");
+		package_extract_dir("launchers/marvellousorange", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Holo Launcher...");
+		package_extract_dir("launchers/holo/app", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing pinken Rosie Launcher...");
+		package_extract_dir("launchers/pinkrosie", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "5"
+	then
+	ui_print("- Flashing Cysense Rosie Launcher...");
+		package_extract_dir("launchers/cysenserosie", "/system/app");
+	endif;	
+
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "6"
+	then
+	ui_print("- Flashing Sense4-Launcherpro...");
+		package_extract_dir("launchers/sense4", "/system/app");
+	endif;	
+
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "7"
+	then
+	ui_print("- Flashing Helldroid Rosie Launcher...");
+		package_extract_dir("launchers/helldroidrosie", "/system/app");
+	endif;	
+	
+set_progress(0.8);
+	
+#Uhren-Widget
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Uhren-Widget...");
+		package_extract_dir("clock/stock", "/system/app");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Marvellous-Orange Clock-Widget...");
+		package_extract_dir("clock/marvellousorange", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Cysense Clock-Widget...");
+		package_extract_dir("clock/cysense", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing pinkes Clock-Widget...");
+		package_extract_dir("clock/pink", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "5"
+	then
+	ui_print("- Flashing Helldroid Clock-Widget...");
+		package_extract_dir("clock/helldroid", "/system/app");
+	endif;	
+
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "6"
+	then
+	ui_print("- Flashing green Clock-Widget...");
+		package_extract_dir("clock/gruen", "/system/app");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "7"
+	then
+	ui_print("- Flashing orange Clock-Widget...");
+		package_extract_dir("clock/orange", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "8"
+	then
+	ui_print("- Flashing purple Clock-Widget...");
+		package_extract_dir("clock/lila", "/system/app");
+	endif;	
+	
+set_progress(0.85);	
+
+#Lockscreen
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock Lockscreen...");
+		package_extract_dir("lockscreen/stock", "/system/app");
+	endif;
+
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Marvellous-Orange Lockscreen...");
+		package_extract_dir("lockscreen/marvellousorange", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Cysense Lockscreen...");
+		package_extract_dir("lockscreen/cysense", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing pinken Lockscreen...");
+		package_extract_dir("lockscreen/pink", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "5"
+	then
+	ui_print("- Flashing Helldroid Lockscreen...");
+		package_extract_dir("lockscreen/helldroid", "/system/app");
+	endif;	
+	
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "6"
+	then
+	ui_print("- Flashing Maz9000 Lockscreen...");
+		package_extract_dir("lockscreen/maz9000", "/system/app");
+	endif;		
+	
+set_progress(0.9);	
+
+#SMS/MMS
+	
+if
+		file_getprop("/tmp/aroma-data/mms.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing Stock SMS/MMS app...");
+		package_extract_dir("mms/stock", "/system/app");
+	endif;	
+
+if
+		file_getprop("/tmp/aroma-data/mms.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing Marvellous-Orange SMS/MMS app...");
+		package_extract_dir("mms/marvellousorange", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/mms.prop","selected.0") == "3"
+	then
+	ui_print("- Flashing Cysense SMS/MMS app...");
+		package_extract_dir("mms/cysense", "/system/app");
+	endif;		
+
+if
+		file_getprop("/tmp/aroma-data/mms.prop","selected.0") == "4"
+	then
+	ui_print("- Flashing Helldroid SMS/MMS app...");
+		package_extract_dir("mms/helldroid", "/system/app");
+	endif;		
+	
+#MEmory extanasion
+if
+		file_getprop("/tmp/aroma-data/memory.prop","selected.0") == "1"
+	then
+	ui_print("- Flashing  Link2sd...");
+		package_extract_dir("memory/Link2sd", "/system/app");
+	endif;
+	
+if
+		file_getprop("/tmp/aroma-data/memory.prop","selected.0") == "2"
+	then
+	ui_print("- Flashing  Int2ext+...");
+		package_extract_dir("memory/Int2ext+", "/system/etc/init.d");
+	endif;
+set_progress(1.0);	
+	
+set_perm_recursive(0, 0, 0755, 0644, "/system");
+set_perm_recursive(0, 0, 0777, 0777, "/system/etc/init.d");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+set_perm(0, 3003, 06755, "/system/bin/ip");
+set_perm(0, 3003, 02750, "/system/bin/netcfg");
+set_perm(0, 3004, 02755, "/system/bin/ping");
+set_perm(0, 2000, 06750, "/system/bin/run-as");
+set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
+set_perm(0, 0, 0755, "/system/etc/bluetooth");
+set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pairing.conf");
+set_perm(3002, 3002, 0444, "/system/etc/bluetooth/blacklist.conf");
+set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
+set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
+set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
+set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+set_perm(0, 1000, 0755, "/system/xbin/busybox");
+symlink("/system/xbin/busybox", "/system/bin/busybox");
+run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
+set_perm(0, 0, 06755, "/system/xbin/su");
+symlink("/system/xbin/su", "/system/bin/su");
+show_progress(0.1, 10);
+show_progress(0.2, 0);
+show_progress(0.2, 10);
+unmount("/system");
