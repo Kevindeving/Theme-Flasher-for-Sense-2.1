@@ -17,6 +17,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "1"
 then
   ui_print("@Installing m1ndh4x8r Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/m1ndh4x8r/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
@@ -27,6 +33,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "2"
 then
   ui_print("@Installing stock Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/stock/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img"); 
@@ -36,6 +48,12 @@ endif;
 if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "3"
 then
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
   ui_print("@Installing Dust Kernel");
       package_extract_dir("devicesupport/marvel/Dustv9/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
@@ -47,6 +65,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "4"
 then
   ui_print("@Installing Stock+ Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/stock2/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
@@ -57,6 +81,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "5"
 then
   ui_print("@Installing Disciplexone v1.2 Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/disci1.2/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
