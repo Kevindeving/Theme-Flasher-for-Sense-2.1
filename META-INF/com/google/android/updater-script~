@@ -17,6 +17,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "1"
 then
   ui_print("@Installing m1ndh4x8r Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/m1ndh4x8r/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
@@ -27,6 +33,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "2"
 then
   ui_print("@Installing stock Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/stock/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img"); 
@@ -36,6 +48,12 @@ endif;
 if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "3"
 then
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
   ui_print("@Installing Dust Kernel");
       package_extract_dir("devicesupport/marvel/Dustv9/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
@@ -47,6 +65,12 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "4"
 then
   ui_print("@Installing Stock+ Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/stock2/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
@@ -57,10 +81,22 @@ if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "5"
 then
   ui_print("@Installing Disciplexone v1.2 Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
       package_extract_dir("devicesupport/marvel/disci1.2/kernel", "/tmp");
   write_raw_image("/tmp/boot.img", "boot");
   delete("/tmp/boot.img");
       package_extract_dir("devicesupport/marvel/disci1.2/system", "/system");
+endif;
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "6"
+then
+ui_print("@ Do not install any kernel");
 endif;
 	
 #Themes
@@ -125,7 +161,12 @@ if
 		package_extract_dir("theme/maz9000app", "/system/app");
 		package_extract_dir("fonts/maz9000", "/system/fonts");
 	endif;
-	
+
+if
+        file_getprop("/tmp/aroma-data/theme.prop","selected.0") == "8"
+	then
+    ui_print("-Do not flash any new look...");
+	endif;
 set_progress(0.3);	
 	
 #Dialer
@@ -170,10 +211,15 @@ if
     ui_print("-Flashing Maz9000 Dialer...");
 		package_extract_dir("dialer/maz9000", "/system/app");
 	endif;	
-	
+
+if
+        file_getprop("/tmp/aroma-data/dialer.prop","selected.0") == "6"
+	then
+    ui_print("-Do not flash any new Dialer...");
+endif;	
 set_progress(0.5);
 	
-#Tastatur
+#Keyboard
 if
         file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "1"
 	then
@@ -212,9 +258,9 @@ if
 if
         file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "6"
 	then
-    ui_print("-Flashing real Gingerbread keyboard...");
-		package_extract_dir("keyboard/gb", "/system/app");
+    ui_print("-Do not flash any new keyboard keyboard...");
 	endif;
+
 set_progress(0.6);	
 
 #Launchers
@@ -273,10 +319,16 @@ if
 	ui_print("- Flashing Helldroid Rosie Launcher...");
 		package_extract_dir("launchers/helldroidrosie", "/system/app");
 	endif;	
-	
+
+if
+		file_getprop("/tmp/aroma-data/launchers.prop","selected.0") == "8"
+	then
+	ui_print("-Do not flash any Launcher...");
+	endif;
+
 set_progress(0.7);
 	
-#Uhren-Widget
+#Clock-Widget
 if
 		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "1"
 	then
@@ -346,7 +398,13 @@ if
 	ui_print("- Flashing purple Clock-Widget...");
 		package_extract_dir("clock/lila", "/system/app");
 	endif;	
-	
+
+if
+		file_getprop("/tmp/aroma-data/clock.prop","selected.0") == "11"
+	then
+	ui_print("- Do not flash any new Clock-Widget...");
+	endif;
+
 set_progress(0.8);	
 
 #Lockscreen
@@ -398,7 +456,12 @@ if
 	ui_print("- Flashing Maz9000 Lockscreen...");
 		package_extract_dir("lockscreen/maz9000", "/system/app");
 	endif;		
-	
+
+if
+		file_getprop("/tmp/aroma-data/lockscreen.prop","selected.0") == "7"
+	then
+	ui_print("- Do not flash any new Lockscreen...");
+        endif;	
 set_progress(0.8);	
 
 #SMS/MMS

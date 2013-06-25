@@ -49,12 +49,13 @@ selectbox(
   "@default",
   "mods.prop",
  
-  "Kernel",					  "",															    2,
-  "Overclockable",			  "m1ndh4x8r's overclockable kernel",					            0,
-  "Stable",			          "Stock non-oc kernel only supports ext2 and3",	                1,
-  "Dust 9.0",                 "Performance Kernel which is overclocked to 787mhz at boot",      0,
-  "Stock moddified",          "A moddified stock kernel by Crossfire 77 with ext4 support",     0,
-  "Disciplexone1.2",          "Performance kernel by disciplexone- Overclockable up to 825mhz", 0
+  "Kernel",					  "",			       		                                 2,
+  "Overclockable",			  "m1ndh4x8r's overclockable kernel",		                                 0,
+  "Stable",			          "Stock non-oc kernel only supports ext2 and3",                                 1,
+  "Dust 9.0",                 "Performance Kernel which is overclocked to 787mhz at boot",                               0,
+  "Stock moddified",          "A moddified stock kernel by Crossfire 77 with ext4 support",                              0,
+  "Disciplexone1.2",          "Performance kernel by disciplexone- Overclockable up to 825mhz",                          0,
+  "None",                     "Keep your current kernel",                                                                0
 ); 
 
 selectbox(
@@ -68,7 +69,8 @@ selectbox(
   "Csense",                              "Cyense Design by Mazer.one",                                                   0,
   "Pink",                                "A pink  Theme by Mazer.one",                                                   0,
   "Helldroid",                           "A really cool Theme von Prototyp1981 and Mazer.one",                           0,
-  "Maz9000",                             "Not much different against the Helldroid",                                     0
+  "Maz9000",                             "Not much different against the Helldroid",                                     0,
+  "None",                                "Keep your current theme",                                                      0
 );  
 
 selectbox(
@@ -81,7 +83,8 @@ selectbox(
 	"Marvellous-Cyense",                 "A new special, exclusive dialer by Mazer.one",                                 0,
 	"Nextheme",                          "A black dialer with blue keys",                                                0,
 	"ICS",                               "A dialer in Ics Design",                                                       0,
-	"Maz9000",                           "A grey-red one by Mazer.one",                                                  0
+	"Maz9000",                           "A grey-red one by Mazer.one",                                                  0,
+        "None",                              "Keep your current dialer",                                                     0
 );
 
 selectbox(
@@ -89,12 +92,12 @@ selectbox(
     "Which keyboard should be flashed ?",
     "icons/app",
     "keyboard.prop",
-    "Stock",                             "Stock Htc Design",                                                          1,
-    "Nextheme",                          "A black keyboard with blue keys",                                           0,
-    "ICS",                               "A keyboard with Ics Design",                                                0,
-	"Black",                             "A dark black keyboard with white keys and without arrows",                  0,
-	"Blue",                              "A dark black keyboard with blue-green keys and without arrows",             0,
-	"Gingerbread",                       "Stock Gingerbread keyboard",                                                0
+    "Stock",                             "Stock Htc Design",                                                                 1,
+    "Nextheme",                          "A black keyboard with blue keys",                                                  0,
+    "ICS",                               "A keyboard with Ics Design",                                                       0,
+	"Black",                             "A dark black keyboard with white keys and without arrows",                     0,
+	"Blue",                              "A dark black keyboard with blue-green keys and without arrows",                0,
+	"None",                       "Keep your current keyboard",                                                          0,
 );	
 	
 selectbox(
@@ -109,7 +112,8 @@ selectbox(
 	"Pink",                             "Modded Stock launcher with pink look ",                                         0,	
 	"Cyense",                           "Modded Stock launcher with Cyense look",                                        0,
 	"Sense4",                           "Modded Launcherpro with Sense 4 Design",                                        0,
-	"Helldroid/Maz9000",                "Modded Stock launcher with Helldroid/Maz9000 Design",                           0
+	"Helldroid/Maz9000",                "Modded Stock launcher with Helldroid/Maz9000 Design",                           0,
+        "None",                             "Keep your current launcher",                                                    0
 );
 
 selectbox(
@@ -126,7 +130,8 @@ selectbox(
 	"Green",                           "Green displayed time and Rest in black",                                         0,
 	"Orange",                          "Orange displayed time and rest in black",                                        0,
 	"Grey",                            "New grey looking Clock-Widget",                                                  0,
-	"purple",                          "Purple displayed time and rest in black",                                        0
+	"purple",                          "Purple displayed time and rest in black",                                        0,
+        "None",                            "Keep your current clock widget",                                                 0
 );
 
 selectbox(
@@ -140,7 +145,8 @@ selectbox(
     "Cyense",                          "Cyense Lockscreen",                                                              0,
     "Pink",                            "Pink Lockscreen",                                                                0,
 	"Helldroid",                       "Helldroid Lockscreen",                                                           0,
-	"Maz9000",                         "Maz9000 Lockscreen",                                                             0
+	"Maz9000",                         "Maz9000 Lockscreen",                                                             0,
+        "None",                         "Keep your current Lockscreen",                                                      0
 );	
 
 selectbox(
@@ -152,7 +158,8 @@ selectbox(
    "Marvellous-Orange",                "A new special, exclusive SMS/MMS app by Mazer.one",                              1,
    "Marvellous-Cyense",                "A new special, exclusive SMS/MMS app by Mazer.one",                              0,
    "Cyense",                           "Cyense look SMS/MMS app",                                                       0,
-   "Helldroid/Maz9000",                "Helldroid/Maz9000 look SMS/MMS app",                                             0
+   "Helldroid/Maz9000",                "Helldroid/Maz9000 look SMS/MMS app",                                             0,
+   "None",                             "Keep your current SMs/MMS app",                                                  0
 );
    
 ini_set("text_next", "Install!");
