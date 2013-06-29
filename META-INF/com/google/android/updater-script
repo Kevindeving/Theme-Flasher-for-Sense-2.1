@@ -96,6 +96,22 @@ endif;
 if
     file_getprop("/tmp/aroma/mods.prop","selected.1") == "6"
 then
+  ui_print("Installing Stock+ ocable kernel Kernel");
+delete("/system/lib/modules/bcm4329.ko");
+delete("/system/lib/modules/kineto_gan.ko");
+delete("/system/lib/modules/tun.ko");
+delete("/system/lib/modules/cifs.ko");
+delete("/system/lib/modules/nls_utf8.ko");
+delete("/system/etc/init.d/88performance");
+      package_extract_dir("devicesupport/marvel/stock3/kernel", "/tmp");
+  write_raw_image("/tmp/boot.img", "boot");
+  delete("/tmp/boot.img");
+      package_extract_dir("devicesupport/marvel/stock3/system", "/system");
+endif;
+
+if
+    file_getprop("/tmp/aroma/mods.prop","selected.1") == "7"
+then
 ui_print("@ Do not install any kernel");
 endif;
 	

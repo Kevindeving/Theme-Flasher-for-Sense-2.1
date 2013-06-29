@@ -55,6 +55,7 @@ selectbox(
   "Dust 9.0",                 "Performance Kernel which is overclocked to 787mhz at boot",                               0,
   "Stock moddified",          "A moddified stock kernel by Crossfire 77 with ext4 support",                              0,
   "Disciplexone1.2",          "Performance kernel by disciplexone- Overclockable up to 825mhz",                          0,
+  "Stock moddified+",         "Like stock moddified but overclockable upto 806mhz",                                      0,
   "None",                     "Keep your current kernel",                                                                0
 ); 
 
